@@ -289,3 +289,347 @@
 //   return arr;
 // }
 // console.log(s([1, 2, 3, 4]));
+
+// function factorial(num) {
+//   if (num < 0) return -1;
+//   else if (num == 0) return 1;
+//   else {
+//     return num * factorial(num - 1);
+//   }
+// }
+// console.log(factorial(3));
+// function isEmpty(item) {
+//   if (item.length == 0) {
+//     return "Empty";
+//   }
+//   return "NotEmpty";
+// }
+// console.log(isEmpty([]));
+
+// function average(arr) {
+//   let sum = 0,
+//     avg;
+//   for (const elem of arr) {
+//     if (typeof elem != "number") return "Array contains string";
+//     else {
+//       sum += elem;
+//       avg = sum / arr.length;
+//     }
+//   }
+
+//   return avg;
+// }
+// console.log(average([1, 2, 3, "String"]));
+// console.log(average([1, 2, 3, 4, 5]));
+
+//Higher Order Function
+
+// const callBack = (n) => {
+//   console.log(n ** 2);
+//   return n ** 2;
+// };
+// function cube(n) {
+//   return callBack(n) * n;
+// }
+// console.log(cube(3));
+
+// const higherOrder = (n) => {
+//   const doSomething = (m) => {
+//     const doWhatEver = (t) => {
+//       return 2 * n + 3 * m + t;
+//     };
+//     return doWhatEver;
+//   };
+//   return doSomething;
+// };
+// console.log(higherOrder(2)(3)(10));
+
+// const numbers = [1, 2, 3, 4];
+// const sumArray = (arr) => {
+//   let sum = 0;
+//   const callback = function (element) {
+//     console.log(element);
+//     sum += element;
+//   };
+//   arr.forEach(callback);
+//   return sum;
+// };
+// console.log(sumArray(numbers));
+
+const posts = [
+  {
+    title: "Post One",
+    body: "This is post one",
+  },
+  {
+    title: "Post Two",
+    body: "This is post Two",
+  },
+];
+
+// function getPosts() {
+//   setTimeout(() => {
+//     let output = "";
+//     posts.forEach((post, i) => {
+//       output += `${post.title} `;
+//     });
+//     console.log(output);
+//   }, 1000);
+// }
+// function createPost(post, callback) {
+//   setTimeout(() => {
+//     posts.push(post);
+//     callback();
+//   }, 2000);
+// }
+
+// createPost({ title: "Post Three", body: "This is post three" }, getPosts);
+
+//Promises
+// function getPosts() {
+//   setTimeout(() => {
+//     let output = "";
+//     posts.forEach((post, i) => {
+//       output += `${post.title} `;
+//     });
+//     console.log(output);
+//   }, 1000);
+// }
+// function createPost(post) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       posts.push(post);
+//       const err = false;
+//       if (!err) {
+//         resolve();
+//       }
+//       reject("Error: something went wrong");
+//     }, 2000);
+//   });
+// }
+// createPost({ title: "Post Three", body: "This is post three" }).then(getPosts);
+
+// const numbers = [1, 2, 3, 4];
+
+// const sumArray = (arr) => {
+//   let sum = 0;
+//   arr.forEach((element) => {
+//     sum += element;
+//   });
+//   return sum;
+// };
+// console.log(sumArray(numbers));
+
+// const numbers = [1, 3, 2];
+// const [num1, num2, num3] = numbers;
+// console.log(num1, num2, num3);
+
+// const fullStack = [
+//   ["HTML", "CSS", "JS", "React"],
+//   ["Node", "Express", "MongoDB"],
+// ];
+
+// const [frontEnd, backEnd] = fullStack;
+// console.log(frontEnd, backEnd);
+
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const [num1, num2, ...rest] = nums;
+// console.log(num1, num2, rest);
+// const countriesDes = [
+//   ["Finland", "Helsinki"],
+//   ["Sweden", "Stockholm"],
+//   ["Norway", "Oslo"],
+// ];
+
+// for (const [country, city] of countriesDes) {
+//   console.log(country, city);
+// }
+
+// const fullStack = [
+//   ["HTML", "CSS", "JS", "React"],
+//   ["Node", "Express", "MongoDB"],
+// ];
+
+// for (const [first, second, third, fourth] of fullStack) {
+//   console.log(first, second, third, fourth);
+// }
+
+// const rectangle = {
+//   width: 20,
+//   height: 10,
+// };
+// // let weight = rectangle.width
+// // let height = rectangle.height
+
+// let { width, height } = rectangle;
+// console.log(width, height);
+
+// const props = {
+//   user:{
+//     firstName:'Asabeneh',
+//     lastName:'Yetayeh',
+//     age:250
+//   },
+//   post:{
+//     title:'Destructuring and Spread',
+//     subtitle:'ES6',
+//     year:2020
+// },
+// skills:['JS', 'React', 'Redux', 'Node', 'Python']
+
+// }
+
+// const {user:{firstName,lastName,age},post:{title,subtitle,year},skills:{skillOne,skillTwo,skillThree,skillFourth,skillFive}}=props
+
+// const person = {
+//   firstName: "Asabeneh",
+//   lastName: "Yetayeh",
+//   age: 250,
+//   country: "Finland",
+//   job: "Instructor and Developer",
+//   skills: [
+//     "HTML",
+//     "CSS",
+//     "JavaScript",
+//     "React",
+//     "Redux",
+//     "Node",
+//     "MongoDB",
+//     "Python",
+//     "D3.js",
+//   ],
+//   languages: ["Amharic", "English", "Suomi(Finnish)"],
+// };
+// const { firstName, lastName, age, country, job, skills, languages } = person;
+
+// const getPersonInfo = () => {
+//   const language = person.languages.length - 1;
+//   const lastIndex = person.languages.slice(0, language).join(",");
+//   const lastItem = person.languages.slice(language, person.languages.length);
+//   let statement = `${firstName} ${lastName} lives in ${country}. He is ${age} years old. He is an ${job}. He teaches ${skills} and He speaks ${lastIndex} and a little bit of ${lastItem} `;
+//   return statement;
+// };
+// console.log(getPersonInfo());
+
+// const frontEnd = ["HTML", "CSS", "JS", "React"];
+// const backEnd = ["Node", "Express", "MongoDB"];
+// const fullStack = [...frontEnd, ...backEnd];
+// console.group(fullStack);
+// const user = {
+//   name: "Asabeneh",
+//   title: "Programmer",
+//   country: "Finland",
+//   city: "Helsinki",
+// };
+// const copiedUser = { ...user };
+// console.log(copiedUser);
+// const copyObj = Object.assign({}, user);
+// console.log(copyObj);
+
+// const sumOfAllNumbers = (...args) => {
+//   let sum = 0;
+//   for (const num of args) {
+//     sum += num;
+//   }
+//   return sum;
+// };
+// console.log(sumOfAllNumbers(1, 2, 3, 4, 5));
+// const countriesArr = ["Finland", "Estonia", "Sweden", "Norway"];
+
+// const newCountry = [];
+// countriesArr.forEach((country, i) => newCountry.push(country));
+// console.log(newCountry);
+// countriesArr.forEach((country, i, arr) =>
+//   console.log(i, country.toUpperCase())
+// );
+
+// const num = [1, 2, 3, 4, 15];
+// let sum =
+//   // num.forEach((n) => {
+//   //   sum += n;
+//   // });
+//   // console.log(sum);
+//   //reduce
+//   num.reduce((previousValue, currentValue) => {
+//     return previousValue + currentValue;
+//   });
+// console.log(sum);
+// const countriesMap = ["Finland", "Estonia", "Sweden", "Norway"];
+
+// const newCountries = countriesMap.map((country) => country.toUpperCase());
+// console.log(newCountries);
+// const countryLength = countriesMap.map((country) => country.length);
+// console.log(countryLength);
+// const nums = [1, 2, 3, 4, 5];
+// const squares = nums.map((n) => n ** 2);
+// const countriesDis = ["Finland", "Estonia", "Sweden", "Norway", "Iceland"];
+// const countriesWithLand = countriesDis.filter((country) =>
+//   country.includes("land")
+// );
+// console.log(countriesWithLand);
+
+// const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const even = numbers.filter((n) => n % 2 === 0);
+// const odd = numbers.filter((n) => n % 2 !== 0);
+// console.log(even);
+// console.log(odd);
+// const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const sum = numbers.reduce((prev, curr) => prev + curr, 5);
+// console.log(sum);
+// const strs = ["Hello", "world", "!"];
+
+// const helloWorld = strs.reduce((prev, curr) => prev + " " + curr);
+// console.log(helloWorld);
+// const numbers = [1, 2, 3, 4, 5];
+// const mul = numbers.reduce((prev, curr) => prev * curr, 10);
+// console.log(mul);
+// const countriesWay = ["Finland", "Estonia", "Sweden", "Norway", "Iceland"];
+// const countryWithWay = countriesWay.find((country) => country.length === 6);
+// console.log(countryWithWay);
+
+const productsI = [
+  { product: "banana", price: 3 },
+  { product: "mango", price: 6 },
+  { product: "potato", price: " " },
+  { product: "avocado", price: 8 },
+  { product: "coffee", price: 10 },
+  { product: "tea", price: "" },
+];
+//1.
+// productsI.forEach((product) => console.log(product.product));
+//2.
+// productsI.forEach((c) => {
+//   if (c.price == " ") {
+//     console.log(`The price of ${c.product} is unknown euros`);
+//   } else {
+//     console.log(`The price of ${c.product} is ${c.price} euros`);
+//   }
+// });
+//3.
+// let sum = 0;
+// const nums = productsI.filter((f) => typeof f.price !== "string");
+// const summation = nums.forEach((n) => {
+//   sum += n.price;
+// });
+// console.log(sum);
+
+//4.
+// const priceArr = productsI.map((product) => product.price);
+// console.log(priceArr);
+
+//5.
+// const prices = productsI.filter((f) => typeof f.price !== "string");
+// console.log(prices);
+//6.
+
+// const sumOfAllPrices = productsI
+//   .map((product) => product.price)
+//   .filter((f) => typeof f !== "string")
+//   .reduce((prev, curr) => prev + curr);
+// console.log(sumOfAllPrices);
+
+//7.
+//8.
+// const value = productsI.find((p) => typeof p.price === "string");
+
+// console.log(value);
